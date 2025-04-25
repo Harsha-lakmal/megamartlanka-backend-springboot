@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.VibutsX</groupId>
-	<artifactId>NexivusSpring</artifactId>
+	<artifactId>MegaMartLanka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>NexivusSpring</name>
 	<description>Demo project for Spring Boot</description>
