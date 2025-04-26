@@ -35,6 +35,8 @@ public class Item {
     @Column(nullable = false)
     private Double price;
 
+    private  String imgPath ;
+
     @ManyToOne
     @JoinColumn(name = "category_Id")
     private Category category;
