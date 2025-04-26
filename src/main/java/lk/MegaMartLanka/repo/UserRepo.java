@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import lk.MegaMartLanka.entity.UserEntity;
+import lk.MegaMartLanka.entity.User;
 
 
 
@@ -14,6 +14,6 @@ import lk.MegaMartLanka.entity.UserEntity;
 
 
 @Repository
-public interface UserRepo extends JpaRepository<UserEntity,Long> {
-    Optional<UserEntity> findByUsername(String username);
+public interface UserRepo extends JpaRepository<User,Long> {
+    Optional<User> findByUsername(String username);
 }

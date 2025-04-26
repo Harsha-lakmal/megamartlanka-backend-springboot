@@ -6,13 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import lk.MegaMartLanka.entity.UserEntity;
+import lk.MegaMartLanka.entity.User;
 import lk.MegaMartLanka.repo.UserRepo;
 import lk.MegaMartLanka.service.UserService;
-
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
+@Transactional
+
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -22,24 +24,24 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public UserEntity create(UserEntity entity) {
+    public User create(User entity) {
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         return userRepository.save(entity);
     }
 
     @Override
-    public List<UserEntity> getAll() {
+    public List<User> getAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public UserEntity getByUsername(String username) {
+    public User getByUsername(String username) {
         return userRepository.findByUsername(username).orElse(null);
     }
 
     @Override
-    public UserEntity update(Long id, UserEntity entity) {
-        UserEntity exUser = userRepository.findById(id).orElse(entity);
+    public User update(Long id, User entity) {
+        User exUser = userRepository.findById(id).orElse(entity);
 
         if (exUser == null) {
             return null;
@@ -59,7 +61,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity getById(Long id) {
+    public User getById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
     

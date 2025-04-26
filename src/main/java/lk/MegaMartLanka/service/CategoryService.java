@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import lk.MegaMartLanka.entity.CategoryEntity;
+import lk.MegaMartLanka.entity.Category;
 
 
 @Service
 public interface CategoryService {
-    CategoryEntity createCategory(CategoryEntity categoryEntity);
-    List<CategoryEntity> getAll();
-    CategoryEntity getById(Long id);
+    Category createCategory(Category categoryEntity);
+    List<Category> getAll();
+    Category getById(Long id);
 }

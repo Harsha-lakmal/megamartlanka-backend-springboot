@@ -1,14 +1,16 @@
 package lk.MegaMartLanka.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "user")
-public class UserEntity {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,20 +27,5 @@ public class UserEntity {
     @Column(nullable = false)
     private String userType;
 
-    // Manually added setters if Lombok isn't working
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
 }

@@ -9,3 +9,4 @@ public class AuthReturnDto {
     private String jwtToken;
     private String usertype;
 }
+

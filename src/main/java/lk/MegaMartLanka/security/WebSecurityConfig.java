@@ -1,7 +1,5 @@
 package lk.MegaMartLanka.security;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +19,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.List;
+
 @Configuration
 @EnableMethodSecurity
 public class WebSecurityConfig {
@@ -30,17 +30,18 @@ public class WebSecurityConfig {
 
     @Bean
     public AuthTokenFilter authTokenFilter() {
-        return new AuthTokenFilter();
+        return new AuthTokenFilter ();
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder ();
     }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-        return authConfig.getAuthenticationManager();
+        return authConfig.getAuthenticationManager ();
     }
 
     @Bean
@@ -50,41 +51,35 @@ public class WebSecurityConfig {
 
     @Bean
     public DaoAuthenticationProvider provider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService());
-        authProvider.setPasswordEncoder(passwordEncoder());
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider ();
+        authProvider.setUserDetailsService (userDetailsService ());
+        authProvider.setPasswordEncoder (passwordEncoder ());
 
         return authProvider;
     }
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
-        configuration.setAllowCredentials(true);
-        configuration.addAllowedHeader("*");
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
+        CorsConfiguration configuration = new CorsConfiguration ();
+        configuration.setAllowedOrigins (List.of ("http://localhost:5173"));
+        configuration.setAllowedMethods (List.of ("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowCredentials (true);
+        configuration.addAllowedHeader ("*");
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource ();
+        source.registerCorsConfiguration ("/**", configuration);
         return source;
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity security) throws Exception {
-        security.csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(
-                        auth -> auth
-                                .requestMatchers("auth/***", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html" )
-                                .permitAll()
-                                .anyRequest().authenticated());
+        security.csrf (csrf -> csrf.disable ()).sessionManagement (session -> session.sessionCreationPolicy (SessionCreationPolicy.STATELESS)).authorizeHttpRequests (auth -> auth.requestMatchers ("/api/v1/MegaMartLanka/login", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll ().anyRequest ().authenticated ());
 
-        
-        security.authenticationProvider(provider());
-        security.addFilterBefore(authTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-        
 
-        return security.cors(Customizer.withDefaults()).build();
+        security.authenticationProvider (provider ());
+        security.addFilterBefore (authTokenFilter (), UsernamePasswordAuthenticationFilter.class);
+
+
+        return security.cors (Customizer.withDefaults ()).build ();
     }
 
 }

@@ -4,15 +4,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import lk.MegaMartLanka.entity.ItemEntity;
+import lk.MegaMartLanka.entity.Item;
 
 
 
 @Service
 public interface ItemService {
-    ItemEntity createItem(ItemEntity entity);
-    List<ItemEntity> getAll();
-    ItemEntity getById(Long id);
-    ItemEntity update(Long id,ItemEntity entity);
+    Item createItem(Item entity);
+    List<Item> getAll();
+    Item getById(Long id);
+    Item update(Long id, Item entity);
     void delete(Long id);
 }

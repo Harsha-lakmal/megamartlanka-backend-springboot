@@ -15,7 +15,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "stock")
-public class StockEntity {
+public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class StockEntity {
 
     @OneToOne
     @JoinColumn(name = "item_Id", nullable = false)
-    private ItemEntity item;
+    private Item item;
 
     @Column(nullable = false)
     private Long qoh;

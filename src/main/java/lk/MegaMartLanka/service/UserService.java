@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import lk.MegaMartLanka.entity.UserEntity;
+import lk.MegaMartLanka.entity.User;
 
 @Service
 public interface UserService {
-    UserEntity create(UserEntity entity);
-    List<UserEntity> getAll();
-    UserEntity getByUsername(String username);
-    UserEntity update(Long id, UserEntity entity);
+    User create(User entity);
+    List<User> getAll();
+    User getByUsername(String username);
+    User update(Long id, User entity);
     void delete(Long id);
-    UserEntity getById(Long id);
+    User getById(Long id);
 }

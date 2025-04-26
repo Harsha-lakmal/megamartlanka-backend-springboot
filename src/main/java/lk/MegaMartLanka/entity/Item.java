@@ -21,7 +21,7 @@ import lombok.*;
 @Table(name = "item")
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemEntity {
+public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,13 +37,13 @@ public class ItemEntity {
 
     @ManyToOne
     @JoinColumn(name = "category_Id")
-    private CategoryEntity category;
+    private Category category;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "items")
-    private List<OrderEntity> orders;
+    private List<Order> orders;
 
     @JsonIgnore
     @OneToOne(mappedBy = "item")
-    private StockEntity stock;
+    private Stock stock;
 }

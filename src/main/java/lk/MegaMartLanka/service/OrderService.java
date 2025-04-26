@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import lk.MegaMartLanka.entity.OrderEntity;
+import lk.MegaMartLanka.entity.Order;
 
 @Service
 public interface OrderService {
-    List<OrderEntity> getAll();
-    OrderEntity create(OrderEntity entity);
+    List<Order> getAll();
+    Order create(Order entity);
 }

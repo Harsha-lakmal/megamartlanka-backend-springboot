@@ -11,3 +11,4 @@ public class StockDto {
     private Long id;
     private Long qty;
 }
+
