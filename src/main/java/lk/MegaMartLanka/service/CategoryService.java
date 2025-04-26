@@ -12,4 +12,8 @@ public interface CategoryService {
     Category createCategory(Category categoryEntity);
     List<Category> getAll();
     Category getById(Long id);
+
+    String deleteCategory(Long id);
+
+    String updateCategory(Long id, Category category);
 }

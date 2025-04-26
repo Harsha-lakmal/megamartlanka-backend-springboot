@@ -32,4 +32,30 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findById (id).orElse (null);
     }
 
+    @Override
+    public String deleteCategory(Long id) {
+        if (categoryRepository.existsById (id)) {
+            categoryRepository.deleteById (id);
+            return "Category deleted";
+        } else {
+            return "Category not found";
+
+        }
+
+    }
+
+    @Override
+    public String updateCategory(Long id, Category category) {
+        if (categoryRepository.existsById (id)) {
+            Category categoryEntity = categoryRepository.findById (id).orElse (null);
+            categoryEntity.setName (category.getName());
+             categoryRepository.save(categoryEntity);
+             return "Update to Category";
+
+        }else {
+            return "Category not found";
+        }
+
+    }
+
 }
