@@ -76,7 +76,7 @@ public class ItemServiceImpl implements ItemService {
 
         String fileUrl = "http://localhost:8080/upload/" + fileName;
 
-        Item item = itemRepository.findById (id).orElseThrow (() -> new RuntimeException ("Item   not found with ID: " + id));
+        Item item = itemRepository.findById (id).orElseThrow (() -> new RuntimeException ("Item  not found with ID: " + id));
 
         item.setImgPath (fileUrl);
 
@@ -87,7 +87,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public byte[] getImage(long id) throws IOException {
-        Item  item = itemRepository.findById (id).orElseThrow (() -> new RuntimeException ("Item  not found with id: " + id));
+        Item item = itemRepository.findById (id).orElseThrow (() -> new RuntimeException ("Item  not found with id: " + id));
 
         String imgUrl = item.getImgPath ();
         System.out.println ("image url :" + imgUrl);

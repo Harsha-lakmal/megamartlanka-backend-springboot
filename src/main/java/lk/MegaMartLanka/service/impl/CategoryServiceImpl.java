@@ -48,13 +48,14 @@ public class CategoryServiceImpl implements CategoryService {
     public String updateCategory(Long id, Category category) {
         if (categoryRepository.existsById (id)) {
             Category categoryEntity = categoryRepository.findById (id).orElse (null);
-            categoryEntity.setName (category.getName());
-             categoryRepository.save(categoryEntity);
-             return "Update to Category";
+            categoryEntity.setName (category.getName ());
+            categoryRepository.save (categoryEntity);
+            return "Update to Category";
 
-        }else {
+        } else {
             return "Category not found";
         }
+
 
     }
 

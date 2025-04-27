@@ -72,6 +72,7 @@ public class StockServiceImpl implements StockService {
         if (exStok == null) {
             return null;
         } else {
+
             exStok.setQoh (qty);
             return stockRepository.save (exStok);
         }
