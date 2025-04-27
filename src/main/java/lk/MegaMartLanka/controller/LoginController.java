@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.util.List;
 
 @RestController
@@ -42,6 +41,7 @@ public class LoginController {
         if (users.isEmpty ()) {
             User admin = new User ();
             admin.setUsername ("admin");
+
             admin.setPassword ("admin123");
             admin.setFullname ("Admin Admin");
             admin.setUserType ("admin");

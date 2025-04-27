@@ -111,6 +111,8 @@ public class ItemController {
             case "png":
                 return MediaType.IMAGE_PNG;
             case "gif":
+
+
                 return MediaType.IMAGE_GIF;
             case "jpg":
             case "jpeg":

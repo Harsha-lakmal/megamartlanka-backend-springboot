@@ -28,14 +28,16 @@ public class CategoryController {
 
         return ResponseEntity.status (201).body (createdCategory);
     }
+
     @DeleteMapping("/category/deelete/{id}")
     public ResponseEntity<String> deleteCategory(@PathVariable Long id) {
         String Category = categoryService.deleteCategory (id);
         return ResponseEntity.status (204).body (Category);
     }
+
     @PutMapping("/update/category/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) {
-        categoryService.updateCategory(id,category);
+        categoryService.updateCategory (id, category);
         return ResponseEntity.status (204).body (category);
     }
 

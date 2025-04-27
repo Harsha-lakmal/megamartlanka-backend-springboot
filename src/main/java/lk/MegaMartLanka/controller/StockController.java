@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/MegaMartLanka")
 
-
 public class StockController {
 
     @Autowired

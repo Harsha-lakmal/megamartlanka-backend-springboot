@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/MegaMartLanka")
 
-public class OrderController {
+public class  OrderController {
 
     @Autowired
     private OrderService orderService;
