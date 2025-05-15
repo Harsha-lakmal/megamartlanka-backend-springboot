@@ -27,5 +27,13 @@ public class User {
     @Column(nullable = false)
     private String userType;
 
+    @Column(nullable = false)
+    private   String  coverImgPath  ;
+
+    @Column(nullable = false)
+    private   String  profileImgPath  ;
+
+
+
 
 }

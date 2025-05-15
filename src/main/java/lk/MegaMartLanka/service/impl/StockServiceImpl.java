@@ -65,6 +65,17 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
+    public String deleteStock(long id) {
+        if (stockRepository.existsById(id)) {
+            stockRepository.deleteById (id);
+            return "Stock deleted";
+        }else {
+            return "Stock not found";
+        }
+
+    }
+
+    @Override
     public Stock updateStock(Long id, Long qty) {
 
         Stock exStok = stockRepository.findById (id).orElse (null);

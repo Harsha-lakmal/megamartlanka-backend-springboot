@@ -72,7 +72,7 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity security) throws Exception {
-        security.csrf (csrf -> csrf.disable ()).sessionManagement (session -> session.sessionCreationPolicy (SessionCreationPolicy.STATELESS)).authorizeHttpRequests (auth -> auth.requestMatchers ("/api/v1/MegaMartLanka/login", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll ().anyRequest ().authenticated ());
+        security.csrf (csrf -> csrf.disable ()).sessionManagement (session -> session.sessionCreationPolicy (SessionCreationPolicy.STATELESS)).authorizeHttpRequests (auth -> auth.requestMatchers ("/api/v1/MegaMartLanka/login", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html" , "/api/v1/MegaMartLanka/AddUsers").permitAll ().anyRequest ().authenticated ());
 
 
         security.authenticationProvider (provider ());

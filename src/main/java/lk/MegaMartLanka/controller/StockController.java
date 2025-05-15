@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/MegaMartLanka")
-
 public class StockController {
 
     @Autowired
@@ -31,7 +30,7 @@ public class StockController {
     }
 
     @PostMapping("/stock")
-    public ResponseEntity<Stock> create(@RequestBody StockDto dto) {  //here dto.id is item id
+    public ResponseEntity<Stock> create(@RequestBody StockDto dto) {
 
         Stock newStock = new Stock ();
 
@@ -84,5 +83,10 @@ public class StockController {
         } else {
             return ResponseEntity.status (200).body (updatedStock);
         }
+    }
+    @DeleteMapping("/delete/stock/{id}")
+    public ResponseEntity<String> deleteStock(@PathVariable long id) {
+        String stockDelete = stockService.deleteStock (id);
+        return ResponseEntity.status (200).body (stockDelete);
     }
 }

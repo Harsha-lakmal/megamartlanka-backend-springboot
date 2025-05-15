@@ -20,4 +20,6 @@ StockService {
     Stock updateStock(Long id, Long qty);
 
     Stock getByItem(Item entity);
+
+    String deleteStock(long id);
 }
